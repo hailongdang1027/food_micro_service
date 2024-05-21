@@ -47,21 +47,21 @@ class FoodRepo():
             traceback.print_exc()
             self.db.rollback()
             raise e
-    
+
     def update_food(self, food_update: Food) -> Food:
         try:
             # Find the food by its food_id
             food = self.db.query(DBFood).filter(DBFood.food_id == food_update.food_id).first()
             if food is None:
                 raise KeyError(f"No food found with food_id {food_update.food_id}")
-            
+
             # Update the food attributes
             food.name = food_update.name
             food.description = food_update.description
             food.price = food_update.price
-            
+
             self.db.commit()
-            
+
             return self._map_to_model(food)
         except SQLAlchemyError as e:
             traceback.print_exc()
@@ -96,6 +96,3 @@ class FoodRepo():
             self.db.rollback()
             # Re-raise the exception so it can be handled elsewhere
             raise e
-
-
-

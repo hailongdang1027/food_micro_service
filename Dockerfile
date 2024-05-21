@@ -4,11 +4,11 @@ FROM python:3.10
 WORKDIR /app_food
 
 # Установка зависимостей проекта
-COPY ./requirements.txt /app_food/
+COPY requirements.txt /app_food/
 RUN pip install --no-cache-dir --upgrade -r /app_food/requirements.txt
 
 # Перенос проекта в образ
-COPY ./app /app_food/app
+COPY app /app_food/app
 COPY .env /app_food
 
 # # Копирование файлов alembic

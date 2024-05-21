@@ -1,7 +1,7 @@
 import pytest
 
-from microservice_food_app.app_food.app.repositories.food_repo import FoodRepo
-from microservice_food_app.app_food.app.services.food_service import FoodService
+from app.repositories.food_repo import FoodRepo
+from app.services.food_service import FoodService
 
 
 @pytest.fixture(scope='session')
@@ -14,6 +14,7 @@ def first_food_data() -> tuple[str, str, float]:
     return 'test_name_1', 'test_description_1', 300
 
 
+@pytest.fixture(scope='session')
 def second_food_data() -> tuple[str, str, float]:
     return 'test_name_2', 'test_description_2', 300
 
@@ -50,6 +51,6 @@ def test_get_food(
         food_service: FoodService
 ) -> None:
     foods = food_service.get_food()
-    assert len(foods) == 1
+    assert len(foods) == 2
     assert foods[0].name == first_food_data[0]
     assert foods[1].name == second_food_data[0]

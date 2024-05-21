@@ -4,12 +4,12 @@ from uuid import UUID
 from app.models.food import Food
 from typing import Optional
 foods: list[Food] = [
-    Food(food_id=UUID('85db966c-67f1-411e-95c0-f02edfa5464a'), name='test_name_0', description='test_description_0',
-         price=270),
-    Food(food_id=UUID('31babbb3-5541-4a2a-8201-537cdff25fed'), name='test_name_1', description='test_description_1',
-         price=180),
-    Food(food_id=UUID('45309954-8e3c-4635-8066-b342f634252c'), name='test_name_2', description='test_description_2',
-         price=230),
+    # Food(food_id=UUID('85db966c-67f1-411e-95c0-f02edfa5464a'), name='test_name_0', description='test_description_0',
+    #      price=270),
+    # Food(food_id=UUID('31babbb3-5541-4a2a-8201-537cdff25fed'), name='test_name_1', description='test_description_1',
+    #      price=180),
+    # Food(food_id=UUID('45309954-8e3c-4635-8066-b342f634252c'), name='test_name_2', description='test_description_2',
+    #      price=230),
 ]
 
 

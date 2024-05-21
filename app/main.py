@@ -2,7 +2,7 @@ import asyncio
 
 from fastapi import FastAPI
 
-# from app_food.app import rabbitmq
+from app import rabbitmq
 from app.endpoints.food_router import food_router
 
 
@@ -18,10 +18,10 @@ app = FastAPI(title='Food Order Service')
 # logger.addHandler(loki_logs_handler)
 
 
-# @app.on_event('startup')
-# def startup():
-#     loop = asyncio.get_event_loop()
-#     asyncio.ensure_future(rabbitmq.consume(loop))
+@app.on_event('startup')
+def startup():
+    loop = asyncio.get_event_loop()
+    asyncio.ensure_future(rabbitmq.consume(loop))
 
 
 app.include_router(food_router, prefix='/api')
