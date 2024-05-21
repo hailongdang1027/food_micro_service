@@ -48,6 +48,7 @@ jobs:
             docker push ${{ secrets.DOCKER_USERNAME }}/app_food:latest
             
             
+    
 
     build-and-push-to-yc:
       name: Build and push to YandexCloud Registry
